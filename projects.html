@@ -7,7 +7,17 @@
         body { font-family: sans-serif; background-color: #0d1117; color: #c9d1d9; display: flex; margin: 0; }
         .sidebar { width: 250px; background-color: #161b22; height: 100vh; padding: 20px; border-right: 1px solid #30363d; }
         .main { padding: 40px; flex-grow: 1; }
-        .card { background: #21262d; border: 1px solid #30363d; padding: 20px; border-radius: 6px; }
+        .card { 
+            background: #21262d; 
+            border: 1px solid #30363d; 
+            padding: 20px; 
+            border-radius: 6px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+        }
         .nav-btn { display: block; color: #c9d1d9; text-decoration: none; padding: 10px; margin-bottom: 5px; border-radius: 6px; }
         .nav-btn:hover { background-color: #30363d; color: #58a6ff; }
     </style>
@@ -18,14 +28,37 @@
         <a href="index.html" class="nav-btn">🏠 Dashboard</a>
         <a href="projects.html" class="nav-btn" style="color: #58a6ff;">📦 App Deployment</a>
     </div>
-    <div class="main">
-        <h1>📦 Project: App Deployment</h1>
-        <div class="card">
-            <h3>Under Construction 🛠️</h3>
-            <p>I am currently learning how to containerize apps using <strong>Docker</strong>. Check back soon to see the live logs!</p>
+<div class="main">
+        <p style="font-size: 14px;"><span class="pulse"></span> Status: <span style="color: #3fb950;">Reviewing Projects</span></p>
+        <h1>📦 Technical Project Gallery</h1>
+        
+        <!-- This "Grid" container holds the cards side-by-side -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            
+            <div class="card">
+                <h3 style="color: #58a6ff;">🚀 Live Web Pipeline</h3>
+                <p>Automating code deployment from local PC to the Cloud.</p>
+                <p style="font-size: 0.8em; color: #8b949e;">Tools: Git, GitHub Actions</p>
+                <span style="color: #3fb950; font-size: 12px;">● COMPLETED</span>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #79c0ff;">🐳 Containerization</h3>
+                <p>Packaging apps into Docker containers for consistency.</p>
+                <p style="font-size: 0.8em; color: #8b949e;">Tools: Docker, YAML</p>
+                <span style="color: #d29922; font-size: 12px;">● IN PROGRESS</span>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #79c0ff;">📜 Linux Automation</h3>
+                <p>Writing Bash scripts to automate server tasks.</p>
+                <p style="font-size: 0.8em; color: #8b949e;">Tools: Ubuntu, Bash</p>
+                <span style="color: #f85149; font-size: 12px;">● PLANNED</span>
+            </div>
+
         </div>
         <br>
-        <a href="index.html" style="color: #58a6ff;">← Back to Home</a>
+        <a href="index.html" style="color: #8b949e; text-decoration: none; font-size: 14px;">← Back to Home Dashboard</a>
     </div>
 </body>
 </html>
