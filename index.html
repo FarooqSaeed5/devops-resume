@@ -52,15 +52,35 @@
         ul { list-style-type: none; padding: 0; }
         li { margin-bottom: 10px; padding-left: 20px; position: relative; }
         li::before { content: "✔"; position: absolute; left: 0; color: #3fb950; }
+
+.nav-btn {
+            display: block;
+            color: #c9d1d9;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            transition: 0.2s; /* This makes the color change smoothly */
+        }
+
+        .nav-btn:hover {
+            background-color: #21262d;
+            color: #58a6ff;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <h3>Menu</h3>
-        <p>🏠 Dashboard</p>
-        <p>📂 Projects</p>
-        <p>⚙️ Settings</p>
+<div class="sidebar">
+        <h3 style="color: #8b949e; font-size: 14px; text-transform: uppercase;">Navigation</h3>
+        <a href="index.html" class="nav-btn">🏠 Dashboard</a>
+        <a href="https://github.com/YOUR_USERNAME" target="_blank" class="nav-btn">🚀 My GitHub</a>
+        <a href="mailto:your-email@example.com" class="nav-btn">✉️ Contact Me</a>
+        
+        <h3 style="color: #8b949e; font-size: 14px; text-transform: uppercase; margin-top: 30px;">Projects</h3>
+        <a href="#" class="nav-btn">📦 App Deployment</a>
+        <a href="#" class="nav-btn">🛠️ Scripting Fixes</a>
     </div>
 
     <div class="main-content">
