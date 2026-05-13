@@ -68,6 +68,23 @@
             color: #58a6ff;
         }
 
+.pulse {
+            height: 10px;
+            width: 10px;
+            background-color: #3fb950;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 0 rgba(63, 185, 80, 0.4);
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0px rgba(63, 185, 80, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(63, 185, 80, 0); }
+            100% { box-shadow: 0 0 0 0px rgba(63, 185, 80, 0); }
+        }
+
     </style>
 </head>
 <body>
@@ -85,6 +102,7 @@
 
     <div class="main-content">
         <span class="status-badge">LIVE DEPLOYMENT</span>
+<p style="font-size: 14px;"><span class="pulse"></span> System Status: <span style="color: #3fb950;">Operational</span></p>
         <h1>DevOps Apprentice Portfolio</h1>
         
         <div class="card">
@@ -103,6 +121,14 @@
         </div>
         
         <p style="color: #8b949e; font-size: 0.8em;">Last Build: Today via Git Push</p>
+
+<div style="background: #161b22; padding: 10px; border-radius: 6px; overflow: hidden; white-space: nowrap; margin-top: 20px; border: 1px solid #30363d;">
+            <marquee behavior="scroll" direction="left" style="color: #58a6ff; font-family: monospace; font-size: 14px;">
+                READY FOR DEPLOYMENT • GIT PIPELINE ACTIVE • HTML5/CSS3 VERIFIED • COMMAND LINE INTERFACE READY • CONTINUOUS INTEGRATION ENABLED
+            </marquee>
+        </div>
+
+
     </div>
 
 </body>
