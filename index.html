@@ -1,22 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>DevOps Journey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Portfolio</title>
     <style>
-        body { font-family: Arial; margin: 40px; line-height: 1.6; }
-        .box { border: 2px solid #333; padding: 20px; border-radius: 10px; }
-        h1 { color: #2c3e50; }
+        /* This is the CSS - The "Styling" part */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117; /* Dark background like GitHub */
+            color: #c9d1d9;
+            margin: 0;
+            display: flex;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 250px;
+            background-color: #161b22;
+            height: 100vh;
+            padding: 20px;
+            border-right: 1px solid #30363d;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        .card {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        h1 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        h2 { color: #79c0ff; }
+        
+        .status-badge {
+            background-color: #238636;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        li::before { content: "✔"; position: absolute; left: 0; color: #3fb950; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>My DevOps Apprenticeship Portfolio</h1>
-        <p>I am a Level 4 Candidate focused on automation and CI/CD.</p>
-        <h3>Projects:</h3>
-        <ul>
-            <li><strong>Automated Resume:</strong> (You are looking at it!)</li>
-            <li>Docker Containerization: (Coming soon)</li>
-        </ul>
+
+    <div class="sidebar">
+        <h3>Menu</h3>
+        <p>🏠 Dashboard</p>
+        <p>📂 Projects</p>
+        <p>⚙️ Settings</p>
     </div>
+
+    <div class="main-content">
+        <span class="status-badge">LIVE DEPLOYMENT</span>
+        <h1>DevOps Apprentice Portfolio</h1>
+        
+        <div class="card">
+            <h2>About Me</h2>
+            <p>I am a Level 4 Apprenticeship candidate focused on mastering the <strong>Git-to-Cloud</strong> pipeline.</p>
+        </div>
+
+        <div class="card">
+            <h2>Technical Skills Proven</h2>
+            <ul>
+                <li><strong>Version Control:</strong> Git & GitHub</li>
+                <li><strong>Environment:</strong> Windows Command Line (CMD)</li>
+                <li><strong>Infrastructure:</strong> GitHub Pages Automation</li>
+                <li><strong>Web Basics:</strong> HTML5 & CSS3</li>
+            </ul>
+        </div>
+        
+        <p style="color: #8b949e; font-size: 0.8em;">Last Build: Today via Git Push</p>
+    </div>
+
 </body>
 </html>
