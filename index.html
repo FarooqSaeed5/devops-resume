@@ -85,6 +85,39 @@
             100% { box-shadow: 0 0 0 0px rgba(63, 185, 80, 0); }
         }
 
+/* --- The Unified Box and Button Styling --- */
+        
+        /* 1. Sidebar Links turned into Boxes/Buttons */
+        .sidebar a { 
+            color: #58a6ff !important; 
+            text-decoration: none !important; 
+            display: block !important; 
+            padding: 12px 15px !important; 
+            margin-bottom: 10px !important; 
+            background: #21262d !important; /* Dark grey box background */
+            border: 1px solid #30363d !important; /* Subtle border */
+            border-radius: 6px !important; /* Rounded corners */
+            transition: all 0.2s ease;
+        }
+        
+        /* Sidebar Link Hover State */
+        .sidebar a:hover { 
+            background: #30363d !important; 
+            border-color: #8b949e !important; 
+            padding-left: 20px !important; /* Micro-interaction: slides slightly right */
+        }
+
+        /* 2. Engineering Profile Box styling */
+        .quote-box { 
+            background: #161b22 !important; /* Matching container background */
+            border: 1px solid #30363d !important;
+            border-left: 4px solid #58a6ff !important; /* Blue accent bar on the left */
+            padding: 25px !important; 
+            margin: 25px 0 !important; 
+            border-radius: 6px !important; 
+        }
+
+
     </style>
 </head>
 <body>
