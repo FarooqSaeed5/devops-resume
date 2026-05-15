@@ -148,6 +148,35 @@
         }
 
 
+/* Complete layout reset to stop overlapping */
+        body { 
+            display: flex !important; 
+            margin: 0;
+            background-color: #0d1117; 
+            color: #c9d1d9;
+        }
+
+        .sidebar { 
+            width: 260px !important; 
+            min-width: 260px !important;
+            height: 100vh; 
+            position: sticky !important; /* Changes from fixed to sticky to stay in line */
+            top: 0;
+            background-color: #161b22; 
+            border-right: 1px solid #30363d; 
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+        
+        .main { 
+            flex-grow: 1 !important; /* Takes up all remaining space automatically */
+            margin-left: 0 !important; /* Resets the broken margin rule */
+            padding: 40px !important; 
+            max-width: 800px; 
+            box-sizing: border-box;
+        }
+
+
     </style>
 </head>
 <body>
