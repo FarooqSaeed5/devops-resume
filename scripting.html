@@ -10,26 +10,22 @@
         .terminal-box { background: #000; border: 1px solid #30363d; padding: 20px; border-radius: 6px; box-shadow: 0 0 15px rgba(63, 185, 80, 0.2); }
         .nav-btn { display: block; color: #c9d1d9; text-decoration: none; padding: 10px; margin-bottom: 5px; border-radius: 6px; font-family: sans-serif; }
         .nav-btn:hover { background-color: #30363d; color: #58a6ff; }
-
 /* ==========================================================================
-   MOBILE RESPONSIVE NAVIGATION OVERRIDES (.sidebar setup)
+   UNIVERSAL MOBILE RESPONSIVE NAVIGATION OVERRIDES
    ========================================================================== */
 
-/* Hide the hamburger button on standard desktop screens */
 .menu-toggle {
     display: none;
 }
 
-/* Mobile Layout Rules (Activates below 768px screen width) */
 @media screen and (max-width: 768px) {
-    
-    /* 1. Reset main structural panels to stack vertically */
+    /* 1. Stack layout panels vertically */
     body, .main-container, .wrapper { 
         display: flex !important;
         flex-direction: column !important;
     }
 
-    /* 2. Reveal and design the 3-line floating menu button */
+    /* 2. Style the menu button */
     .menu-toggle {
         display: block !important;
         position: fixed;
@@ -42,44 +38,42 @@
         border-radius: 5px;
         cursor: pointer;
         font-weight: bold;
-        z-index: 1000; /* Stays fixed above all content */
+        z-index: 1000;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
-    /* 3. Hide your .sidebar class completely off-screen by default */
-    .sidebar {
+    /* 3. Target any sidebar variation (.sidebar, .side-bar, aside) */
+    .sidebar, .side-bar, aside, .nav-container {
         position: fixed !important;
         top: 0;
-        left: -280px; /* Hidden off-screen to the left */
+        left: -280px; /* Hidden off-screen */
         width: 260px !important;
         height: 100vh !important;
-        background: #0f172a !important; /* Matches your dark slate background */
+        background: #0f172a !important; /* Dark theme */
         box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
         z-index: 999;
-        transition: left 0.3s ease-in-out; /* Smooth sliding motion */
-        padding: 70px 20px 20px 20px !important; /* Insets links below button */
+        transition: left 0.3s ease-in-out;
+        padding: 70px 20px 20px 20px !important;
     }
 
-    /* 4. Slide the .sidebar back into full view when '.active' class is triggered */
-    .sidebar.active {
+    /* 4. Slide out the container when marked active */
+    .sidebar.active, .side-bar.active, aside.active, .nav-container.active {
         left: 0 !important;
     }
 
-    /* 5. Force the main text content panel to expand to full device width */
+    /* 5. Stretch content block */
     main, .content, .main-content {
         width: 100% !important;
-        padding: 80px 20px 20px 20px !important; /* Prevents text colliding with top button */
+        padding: 80px 20px 20px 20px !important;
         box-sizing: border-box !important;
     }
 
-    /* 6. Prevent your project/skill tag badges from bunching or shrinking */
     .tags, .skills-list {
         display: flex !important;
         flex-wrap: wrap !important;
         gap: 8px !important;
     }
 }
-
     </style>
 </head>
 <body>
@@ -117,7 +111,12 @@
     </div>
 <script>
 function toggleMenu() {
-    const sidebar = document.querySelector('.sidebar');
+    // Finds whichever sidebar name is being used on this page layout
+    const sidebar = document.querySelector('.sidebar') || 
+                    document.querySelector('.side-bar') || 
+                    document.querySelector('aside') ||
+                    document.querySelector('.nav-container');
+    
     if (sidebar) {
         sidebar.classList.toggle('active');
     }
