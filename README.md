@@ -2,7 +2,7 @@
 
 
 
-!\[Deploy Portfolio Website](https://github.com/FarooqSaeed5/devops-resume/actions/workflows/deploy.yml/badge.svg)
+<img src="https://github.com/FarooqSaeed5/devops-resume/actions/workflows/deploy.yml/badge.svg" alt="Build Status">
 
 
 
