@@ -1,6 +1,6 @@
 \# DevOps Apprenticeship Portfolio
 
-\[!\[Deploy Portfolio Website](https://github.com/FarooqSaeed5/devops-resume/actions/workflows/deploy.yml/badge.svg)](https://github.com/YOUR\_GITHUB\_USERNAME/YOUR\_REPO\_NAME/actions/workflows/deploy.yml)
+\[!\[Deploy Portfolio Website](https://github.com/FarooqSaeed5/devops-resume/actions/workflows/deploy.yml/badge.svg)](https://github.com/FarooqSaeed5/devops-resume/actions/workflows/deploy.yml)
 
 This project demonstrates my ability to manage web infrastructure using professional DevOps tools.
 
