@@ -1,15 +1,13 @@
 name: Deploy Portfolio Website
 
-# 1. TRIGGER: Run this pipeline every time code is pushed to the main branch
 on:
   push:
     branches:
       - main
 
-# 2. JOBS: What the automated virtual machine should do
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # Spins up a fresh, virtual Linux server in the cloud
+    runs-on: ubuntu-latest
 
     steps:
       # Step A: Download your portfolio code onto the Linux machine
@@ -20,14 +18,14 @@ jobs:
       - name: System Health Check
         run: |
           echo "Checking system infrastructure..."
-          test -f index.html && echo "index.html exists" || exit 1
-          test -f software.html && echo "software.html exists" || exit 1
-          test -f plumbing.html && echo "plumbing.html exists" || exit 1
+          if [ -f index.html ]; then echo "index.html exists"; else echo "ERROR: index.html missing" && exit 1; fi
+          if [ -f software.html ]; then echo "software.html exists"; else echo "ERROR: software.html missing" && exit 1; fi
+          if [ -f plumbing.html ]; then echo "plumbing.html exists"; else echo "ERROR: plumbing.html missing" && exit 1; fi
           echo "All core digital pipes are intact. No leaks found!"
 
       # Step C: Deploy the verified files securely to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: . # Deploy the root folder containing your HTML files
-          branch: gh-pages # Pushes the live site to the hosting branch
+          folder: .
+          branch: gh-pages
