@@ -10,9 +10,80 @@
         .terminal-box { background: #000; border: 1px solid #30363d; padding: 20px; border-radius: 6px; box-shadow: 0 0 15px rgba(63, 185, 80, 0.2); }
         .nav-btn { display: block; color: #c9d1d9; text-decoration: none; padding: 10px; margin-bottom: 5px; border-radius: 6px; font-family: sans-serif; }
         .nav-btn:hover { background-color: #30363d; color: #58a6ff; }
+
+/* ==========================================================================
+   MOBILE RESPONSIVE NAVIGATION OVERRIDES (.sidebar setup)
+   ========================================================================== */
+
+/* Hide the hamburger button on standard desktop screens */
+.menu-toggle {
+    display: none;
+}
+
+/* Mobile Layout Rules (Activates below 768px screen width) */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Reset main structural panels to stack vertically */
+    body, .main-container, .wrapper { 
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* 2. Reveal and design the 3-line floating menu button */
+    .menu-toggle {
+        display: block !important;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        background: #1e293b;
+        color: #fff;
+        border: 1px solid #334155;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        z-index: 1000; /* Stays fixed above all content */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 3. Hide your .sidebar class completely off-screen by default */
+    .sidebar {
+        position: fixed !important;
+        top: 0;
+        left: -280px; /* Hidden off-screen to the left */
+        width: 260px !important;
+        height: 100vh !important;
+        background: #0f172a !important; /* Matches your dark slate background */
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        transition: left 0.3s ease-in-out; /* Smooth sliding motion */
+        padding: 70px 20px 20px 20px !important; /* Insets links below button */
+    }
+
+    /* 4. Slide the .sidebar back into full view when '.active' class is triggered */
+    .sidebar.active {
+        left: 0 !important;
+    }
+
+    /* 5. Force the main text content panel to expand to full device width */
+    main, .content, .main-content {
+        width: 100% !important;
+        padding: 80px 20px 20px 20px !important; /* Prevents text colliding with top button */
+        box-sizing: border-box !important;
+    }
+
+    /* 6. Prevent your project/skill tag badges from bunching or shrinking */
+    .tags, .skills-list {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+}
+
     </style>
 </head>
 <body>
+<button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
     <div class="sidebar">
         <h3>Menu</h3>
         <a href="index.html" class="nav-btn">🏠 Dashboard</a>
@@ -44,5 +115,13 @@
         <br>
         <a href="index.html" style="color: #58a6ff; font-family: sans-serif;">← Back to Home</a>
     </div>
+<script>
+function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+        sidebar.classList.toggle('active');
+    }
+}
+</script>
 </body>
 </html>
