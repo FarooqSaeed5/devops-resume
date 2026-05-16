@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Portfolio</title>
+    <style>
+        /* This is the CSS - The "Styling" part */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117; /* Dark background like GitHub */
+            color: #c9d1d9;
+            margin: 0;
+            display: flex;
+        }
+        
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 250px;
+            background-color: #161b22;
+            height: 100vh;
+            padding: 20px;
+            border-right: 1px solid #30363d;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        .card {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        h1 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        h2 { color: #79c0ff; }
+        
+        .status-badge {
+            background-color: #238636;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        li::before { content: "✔"; position: absolute; left: 0; color: #3fb950; }
+
+.nav-btn {
+            display: block;
+            color: #c9d1d9;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            transition: 0.2s; /* This makes the color change smoothly */
+        }
+
+        .nav-btn:hover {
+            background-color: #21262d;
+            color: #58a6ff;
+        }
+
+.pulse {
+            height: 10px;
+            width: 10px;
+            background-color: #3fb950;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 0 rgba(63, 185, 80, 0.4);
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0px rgba(63, 185, 80, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(63, 185, 80, 0); }
+            100% { box-shadow: 0 0 0 0px rgba(63, 185, 80, 0); }
+        }
+
+/* --- The Unified Box and Button Styling --- */
+        
+        /* 1. Sidebar Links turned into Boxes/Buttons */
+        .sidebar a { 
+            color: #58a6ff !important; 
+            text-decoration: none !important; 
+            display: block !important; 
+            padding: 12px 15px !important; 
+            margin-bottom: 10px !important; 
+            background: #21262d !important; /* Dark grey box background */
+            border: 1px solid #30363d !important; /* Subtle border */
+            border-radius: 6px !important; /* Rounded corners */
+            transition: all 0.2s ease;
+        }
+        
+        /* Sidebar Link Hover State */
+        .sidebar a:hover { 
+            background: #30363d !important; 
+            border-color: #8b949e !important; 
+            padding-left: 20px !important; /* Micro-interaction: slides slightly right */
+        }
+
+        /* 2. Engineering Profile Box styling */
+        .quote-box { 
+            background: #161b22 !important; /* Matching container background */
+            border: 1px solid #30363d !important;
+            border-left: 4px solid #58a6ff !important; /* Blue accent bar on the left */
+            padding: 25px !important; 
+            margin: 25px 0 !important; 
+            border-radius: 6px !important; 
+        }
+
+
+/* Fix sidebar heading brightness and font weight */
+        .sidebar h3 {
+            color: #8b949e !important; /* Changes from bright white to muted grey */
+            font-weight: 500 !important; /* Tones down the boldness */
+            font-size: 14px !important; /* Standardizes the size */
+            text-transform: uppercase; /* Optional: Makes it look like a clean category label */
+            letter-spacing: 0.5px;
+        }
+
+
+/* Prevent sidebar from squishing and fix layout alignment */
+        .sidebar { 
+            width: 260px !important; 
+            min-width: 260px !important; /* Forces it to stay this size */
+            background-color: #161b22; 
+            height: 100vh; 
+            border-right: 1px solid #30363d; 
+            padding: 20px; 
+            position: fixed; 
+            box-sizing: border-box; /* Includes padding in the width calculation */
+        }
+        
+        .main { 
+            margin-left: 300px !important; /* Ensures space for the 260px sidebar + padding */
+            padding: 40px; 
+            max-width: 800px; 
+            box-sizing: border-box;
+        }
+
+
+/* Complete layout reset to stop overlapping */
+        body { 
+            display: flex !important; 
+            margin: 0;
+            background-color: #0d1117; 
+            color: #c9d1d9;
+        }
+
+        .sidebar { 
+            width: 260px !important; 
+            min-width: 260px !important;
+            height: 100vh; 
+            position: sticky !important; /* Changes from fixed to sticky to stay in line */
+            top: 0;
+            background-color: #161b22; 
+            border-right: 1px solid #30363d; 
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+        
+        .main { 
+            flex-grow: 1 !important; /* Takes up all remaining space automatically */
+            margin-left: 0 !important; /* Resets the broken margin rule */
+            padding: 40px !important; 
+            max-width: 800px; 
+            box-sizing: border-box;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+        <h3 style="color: #8b949e; font-size: 14px; text-transform: uppercase;">Navigation</h3>
+        <a href="index.html" class="nav-btn">🏠 Dashboard</a>
+        <a href="https://github.com/FarooqSaeed5" target="_blank" class="nav-btn">🚀 My GitHub</a>
+        <a href="mailto:farooqsaeed887@gmail.com" class="nav-btn">✉️ Contact Me</a>
+        
+        <h3 style="color: #8b949e; font-size: 14px; text-transform: uppercase; margin-top: 30px;">Projects</h3>
+        <a href="projects.html" class="nav-btn">📦 App Deployment</a>
+        <a href="scripting.html" class="nav-btn">🛠️ Scripting Fixes</a>
+
+<h3 style="color: white; margin-top: 30px;">🏗️ Experience</h3>
+        <a href="software.html">🎮 Software & Games</a>
+        <a href="plumbing.html">🔧 Plumbing Systems</a>
+
+    </div>
+
+    <div class="main-content">
+        <span class="status-badge">LIVE DEPLOYMENT</span>
+<p style="font-size: 14px;"><span class="pulse"></span> System Status: <span style="color: #3fb950;">Operational</span></p>
+        <h1>DevOps Apprentice Portfolio</h1>
+        
+<!-- Skills Matrix / Toolbelt -->
+        <div style="margin-top: 20px;">
+            <span class="tag">HTML5/CSS3</span>
+            <span class="tag" style="background: #1f6feb;">Git/GitHub</span>
+            <span class="tag" style="background: #8957e5;">Technical Troubleshooting</span>
+            <span class="tag" style="background: #d29922;">Systems Infrastructure</span>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #30363d; margin: 25px 0;">
+
+        <h2>Engineering Profile</h2>
+<div class="quote-box">
+        <p>"I hold a Level 3 qualification in Software & Website Development and a Level 2 in Plumbing. While they sound like completely different worlds, they both taught me the exact same skill: how to build, route, and fix complex systems so they don't break. I am incredibly passionate about DevOps because it combines my love for coding with my hands-on knack for troubleshooting infrastructure. I’m looking for a Level 4 apprenticeship where I can put this passion to work keeping digital systems running smoothly."</p>
+        
+        <div class="quote-box">
+            <p style="margin: 0; font-style: italic; color: #8b949e;">
+                "My experience in trade-based systems allows me to view DevOps through a practical lens—ensuring that the 'digital pipes' of a company are efficient, secure, and leak-proof."
+            </p>
+        </div>
+        </div>
+        <div class="card">
+            <h2>About Me</h2>
+            <p>I am a Level 4 Apprenticeship candidate focused on mastering the <strong>Git-to-Cloud</strong> pipeline.</p>
+        </div>
+
+        <div class="card">
+            <h2>Technical Skills Proven</h2>
+            <ul>
+                <li><strong>Version Control:</strong> Git & GitHub</li>
+                <li><strong>Environment:</strong> Windows Command Line (CMD)</li>
+                <li><strong>Infrastructure:</strong> GitHub Pages Automation</li>
+                <li><strong>Web Basics:</strong> HTML5 & CSS3</li>
+            </ul>
+        </div>
+        
+        <p style="color: #8b949e; font-size: 0.8em;">Last Build: Today via Git Push</p>
+
+<div style="background: #161b22; padding: 10px; border-radius: 6px; overflow: hidden; white-space: nowrap; margin-top: 20px; border: 1px solid #30363d;">
+            <marquee behavior="scroll" direction="left" style="color: #58a6ff; font-family: monospace; font-size: 14px;">
+                READY FOR DEPLOYMENT • GIT PIPELINE ACTIVE • HTML5/CSS3 VERIFIED • COMMAND LINE INTERFACE READY • CONTINUOUS INTEGRATION ENABLED
+            </marquee>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
