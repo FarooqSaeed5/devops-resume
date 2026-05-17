@@ -249,29 +249,55 @@ function toggleMenu() {
 </script>
 
 <script>
-    // 1. Calibrate the starting point to your actual file names
+    // 1. Core State Tracking Parameters
     let currentImageNumber = 1001;
-    const startImageCount = 1001;  // The absolute lowest image number
-    const totalImagesCount = 1099; // The absolute highest image number
+    const startImageCount = 1001;  
+    const totalImagesCount = 1099; 
 
+    // 2. NEW: The Preloading Cache Mechanism
+    // This array will hold the images in the browser's active memory background
+    const preloadedImages = [];
+
+    function preloadNextImages() {
+        // Preload the next 5 images in the sequence ahead of time
+        for (let i = 1; i <= 5; i++) {
+            let nextNum = currentImageNumber + i;
+            
+            // Loop guardrail check for preloading limits
+            if (nextNum > totalImagesCount) {
+                nextNum = startImageCount + (nextNum - totalImagesCount - 1);
+            }
+            
+            // Create a hidden image object to force the browser to cache it instantly
+            if (!preloadedImages[nextNum]) {
+                preloadedImages[nextNum] = new Image();
+                preloadedImages[nextNum].src = `images/plumbing-system-${nextNum}.jpg`;
+            }
+        }
+    }
+
+    // Run the preload immediately on page load for the first batch
+    preloadNextImages();
+
+    // 3. The Navigation Engine
     function moveSlide(direction) {
         currentImageNumber += direction;
 
-        // 2. Correct the boundary loops so they stay inside the 1000s range
         if (currentImageNumber > totalImagesCount) {
-            currentImageNumber = startImageCount; // Loop back to the beginning (1001)
+            currentImageNumber = startImageCount; 
         } else if (currentImageNumber < startImageCount) {
-            currentImageNumber = totalImagesCount; // Loop back to the end (1099)
+            currentImageNumber = totalImagesCount; 
         }
 
         const slideImg = document.getElementById("carousel-slide");
         const counterText = document.getElementById("current-index");
 
-        // 3. REMOVED padStart! We inject the 4-digit number directly into the file name path
+        // Swap the image instantly from the local preloaded cache
         slideImg.src = `images/plumbing-system-${currentImageNumber}.jpg`;
-        
-        // 4. Update the text counter display on your screen
         counterText.innerText = currentImageNumber;
+
+        // Trigger the background worker to fetch the next batch seamlessly
+        preloadNextImages();
     }
 </script>
 </body>
