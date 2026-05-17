@@ -22,6 +22,40 @@
         .nav-btn { display: block; color: #c9d1d9; text-decoration: none; padding: 10px; margin-bottom: 5px; border-radius: 6px; }
         .nav-btn:hover { background-color: #30363d; color: #58a6ff; }
 
+/* --- The Unified Box and Button Styling --- */
+        
+        /* 1. Sidebar Links turned into Boxes/Buttons */
+        .sidebar a { 
+            color: #58a6ff !important; 
+            text-decoration: none !important; 
+            display: block !important; 
+            padding: 12px 15px !important; 
+            margin-bottom: 10px !important; 
+            background: #21262d !important; /* Dark grey box background */
+            border: 1px solid #30363d !important; /* Subtle border */
+            border-radius: 6px !important; /* Rounded corners */
+            transition: all 0.2s ease;
+        }
+        
+        /* Sidebar Link Hover State */
+        .sidebar a:hover { 
+            background: #30363d !important; 
+            border-color: #8b949e !important; 
+            padding-left: 20px !important; /* Micro-interaction: slides slightly right */
+        }
+
+        /* 2. Engineering Profile Box styling */
+        .quote-box { 
+            background: #161b22 !important; /* Matching container background */
+            border: 1px solid #30363d !important;
+            border-left: 4px solid #58a6ff !important; /* Blue accent bar on the left */
+            padding: 25px !important; 
+            margin: 25px 0 !important; 
+            border-radius: 6px !important; 
+        }
+
+
+
 /* ==========================================================================
    UNIVERSAL MOBILE RESPONSIVE NAVIGATION OVERRIDES
    ========================================================================== */
@@ -90,11 +124,22 @@
 </head>
 <body>
 <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
-    <div class="sidebar">
-        <h3>Menu</h3>
+   <div class="sidebar">
+        <h3 style="color: #8b949e; font-size: 14px; text-transform: uppercase;">Navigation</h3>
         <a href="index.html" class="nav-btn">🏠 Dashboard</a>
-        <a href="projects.html" class="nav-btn" style="color: #58a6ff;">📦 App Deployment</a>
+        <a href="https://github.com/FarooqSaeed5" target="_blank" class="nav-btn">🚀 My GitHub</a>
+        <a href="mailto:farooqsaeed887@gmail.com" class="nav-btn">✉️ Contact Me</a>
+        
+        <h3 style="color: #8b949e; font-size: 14px; text-transform: uppercase; margin-top: 30px;">Projects</h3>
+        <a href="projects.html" class="nav-btn">📦 App Deployment</a>
+        <a href="scripting.html" class="nav-btn">🛠️ Scripting Fixes</a>
+
+<h3 style="color: white; margin-top: 30px;">🏗️ Experience</h3>
+        <a href="software.html">🎮 Software & Games</a>
+        <a href="plumbing.html">🔧 Plumbing Systems</a>
+
     </div>
+
 <div class="main">
         <p style="font-size: 14px;"><span class="pulse"></span> Status: <span style="color: #3fb950;">Reviewing Projects</span></p>
         <h1>📦 Technical Project Gallery</h1>
