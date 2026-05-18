@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me & CV | Portfolio</title>
+    <style>
+        /* Global Project Theme Styles */
+        :root {
+            --primary: #2563eb;
+            --dark: #0d1117; /* Matches GitHub/Dashboard dark profile background */
+            --light: #f8fafc;
+            --text: #c9d1d9; /* Muted light grey text for dashboard contrast */
+            --sidebar-width: 260px;
+        }
+        
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117; /* Dark theme tracking across the platform */
+            color: #c9d1d9;
+            display: flex;
+        }
+
+        /* --- STABLE SIDEBAR SYSTEM --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #161b22; /* Darker card offset background */
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 30px 20px;
+            border-right: 1px solid #30363d;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        /* Your Unified Nav-Button Class Blueprint */
+        .nav-btn {
+            display: block;
+            color: #58a6ff;
+            text-decoration: none;
+            padding: 10px 12px;
+            margin: 4px 0;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* --- MAIN CONTENT WINDOW --- */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex-grow: 1;
+            padding: 40px;
+            min-height: 100vh;
+            background-color: #0d1117;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-section {
+            background: #161b22;
+            padding: 40px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            margin-bottom: 35px;
+        }
+
+        h1 { color: white; margin-top: 0; font-size: 2.2rem; }
+        h2 { color: white; border-bottom: 1px solid #30363d; padding-bottom: 8px; margin-top: 40px; }
+        p { color: #8b949e; line-height: 1.6; }
+
+        /* --- INTERACTIVE CV DOWNLOAD BUTTONS --- */
+        .cv-actions {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover { opacity: 0.9; }
+        
+        .btn-secondary {
+            background-color: #21262d;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+        }
+        .btn-secondary:hover { background-color: #30363d; color: white; }
+
+        /* --- EMBEDDED PDF VIEWER PANEL --- */
+        .cv-viewer-container {
+            background: #161b22;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 850px;
+            border: 1px solid #30363d;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        /* --- MOBILE LAYOUT & RESPONSIVE SCALING --- */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 20px;
+                border-right: none;
+                border-bottom: 1px solid #30363d;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .profile-section {
+                padding: 25px;
+            }
+
+            .cv-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .pdf-frame {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+        <h3 style="color: #8b949e; font-size: 14px; text-transform: uppercase;">Navigation</h3>
+        <a href="index.html" class="nav-btn">🏠 Dashboard</a>
+        <a href="cv-about.html" class="nav-btn">📄 About & CV</a>
+        <a href="https://github.com/FarooqSaeed5" target="_blank" class="nav-btn">🚀 My GitHub</a>
+        <a href="mailto:farooqsaeed887@gmail.com" class="nav-btn">✉️ Contact Me</a>
+        
+        <h3 style="color: #8b949e; font-size: 14px; text-transform: uppercase; margin-top: 30px;">Projects</h3>
+        <a href="projects.html" class="nav-btn">📦 App Deployment</a>
+        <a href="scripting.html" class="nav-btn">🛠️ Scripting Fixes</a>
+
+<h3 style="color: white; margin-top: 30px;">🏗️ Experience</h3>
+        <a href="software.html">🎮 Software & Games</a>
+        <a href="plumbing.html">🔧 Plumbing Systems</a>
+
+    </div>
+
+    <main class="main-content">
+        <div class="container">
+            
+            <section class="profile-section">
+                <h1>About Me</h1>
+                <p>Hi, I'm a driven technical operations specialist combining hands-on technical trades engineering experience with web operations management. Alongside my structural and engineering training, I independently run and maintain a live Shopify e-commerce business—managing custom domain mapping, DNS routing, and platform asset delivery networks.</p>
+                <p>I am bridging the gap between mechanical engineering logic and digital systems, actively building a foundation in Cloud architecture and automated infrastructure pipelines to scale into a professional DevOps career path.</p>
+            </section>
+
+            <h2>Curriculum Vitae</h2>
+            <div class="cv-actions">
+                <a href="DevOps_CV.pdf" download class="btn">📥 Download PDF CV</a>
+                <a href="DevOps_CV.pdf" target="_blank" class="btn btn-secondary">👁️ View Fullscreen</a>
+            </div>
+
+            <div class="cv-viewer-container">
+                <iframe src="DevOps_CV.pdf" class="pdf-frame"></iframe>
+            </div>
+            
+        </div>
+    </main>
+
+</body>
+</html>
